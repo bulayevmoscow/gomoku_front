@@ -1,0 +1,40 @@
+$hover_noHover: url("data:image/svg+xml,%3Csvg width='43' height='43' viewBox='0 0 43 43' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect\
+ x='0.25' y='0.25' width='42.5' height='42.5' fill='white' stroke='white' stroke-width='0.5'/%3E%3C/svg%3E%0A");
+$hover_blue: url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath\
+ d='M2.67881 2.82119L24.3212 24.1788M2.67882 24.1788L24.3212 2.8212' stroke='%235889EA' stroke-width='7'/%3E%3C/svg%3E%0A");
+$hover_red: url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath\
+ d='M2.67881 2.82119L24.3212 24.1788M2.67882 24.1788L24.3212 2.8212' stroke='%23F24C4C' stroke-width='7'/%3E%3C/svg%3E%0A");
+
+.container {
+  .battle_field {
+    width: 645px;
+    height: 645px;
+    display: grid;
+    flex-flow: row wrap;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    .cell {
+      padding: 5px;
+      box-sizing: border-box;
+      font-size: 10px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: 6.6%;
+      border: 0.5px solid black;
+      margin: 2px;
+      overflow: hidden;
+      background-image: $hover_noHover;
+      background-size: 20%;
+      background-position: center;
+      &:hover {
+        transition: 0.1s;
+        background-image: $hover_red;
+        background-clip: content-box;
+        background-size: 90%;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+}
