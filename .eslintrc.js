@@ -3,7 +3,13 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended', 'xo', 'prettier'],
+  extends: [
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'xo',
+    'prettier',
+    'plugin:cypress/recommended',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -12,7 +18,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'unused-imports'],
+  plugins: ['react', '@typescript-eslint', 'unused-imports', 'cypress'],
   rules: {
     'no-return-assign': 'off',
     'react/function-component-definition': [

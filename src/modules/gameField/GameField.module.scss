@@ -4,17 +4,26 @@ $hover_blue: url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 
  d='M2.67881 2.82119L24.3212 24.1788M2.67882 24.1788L24.3212 2.8212' stroke='%235889EA' stroke-width='7'/%3E%3C/svg%3E%0A");
 $hover_red: url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 27 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath\
  d='M2.67881 2.82119L24.3212 24.1788M2.67882 24.1788L24.3212 2.8212' stroke='%23F24C4C' stroke-width='7'/%3E%3C/svg%3E%0A");
+$mark_blue: url("data:image/svg+xml,%3Csvg width='35' height='35' viewBox='0 0 35 35' fill='none'\
+ xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M35 17.5C35 27.165 27.165 35 17.5 35C7.83502 35 0 27.165 0 17.5C0 7.83502 7.83502 0 17.5 0C27.165 0 35 7.83502 35 17.5Z' fill='%235889EA'/%3E%3C/svg%3E%0A");
+$mark_red: url("data:image/svg+xml,%3Csvg width='35' height='35' viewBox='0 0 35 35' fill='none' \
+xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='17.5' cy='17.5' r='17.5' fill='%23F24C4C'/%3E%3C/svg%3E%0A");
 
 .container {
+  * {
+    transition: 0.3s;
+  }
   .battle_field {
     width: 645px;
     height: 645px;
     display: grid;
     flex-flow: row wrap;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    //grid-template-columns: repeat(3, 1fr);
+    //grid-template-rows: repeat(3, 1fr);
 
     .cell {
+      cursor: pointer;
+      color: transparent;
       padding: 5px;
       box-sizing: border-box;
       font-size: 10px;
@@ -24,16 +33,25 @@ $hover_red: url("data:image/svg+xml,%3Csvg width='27' height='27' viewBox='0 0 2
       border: 0.5px solid black;
       margin: 2px;
       overflow: hidden;
-      background-image: $hover_noHover;
-      background-size: 20%;
       background-position: center;
-      &:hover {
-        transition: 0.1s;
-        background-image: $hover_red;
-        background-clip: content-box;
-        background-size: 90%;
-        background-repeat: no-repeat;
-        background-position: center;
+      background-image: $hover_noHover;
+      //background-clip: content-box;
+      background-size: 90%;
+      background-repeat: no-repeat;
+      &.player {
+        &.oneEmpty:hover {
+          background-image: $hover_red;
+        }
+        &.twoEmpty:hover {
+          background-image: $hover_blue;
+        }
+
+        &.oneMark {
+          background-image: $mark_blue;
+        }
+        &.twoMark {
+          background-image: $mark_red;
+        }
       }
     }
   }
